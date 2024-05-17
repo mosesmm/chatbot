@@ -111,3 +111,4 @@ function closePopup() {
   var popup = document.getElementById("emergencyPopup");
   popup.style.display = "none";
 }
+
