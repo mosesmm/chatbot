@@ -7,7 +7,7 @@ const symptomMap = {
     treatment: "Rest, drink plenty of fluids, and take over-the-counter fever reducers like acetaminophen or ibuprofen.",
     causes: "Fevers can be caused by infections, such as the flu or a cold, as well as other medical conditions.",
   },
-  // Add more symptoms and their corresponding treatments and causes here
+  
   "skin rash": {
     treatment: "Keep the affected area clean and dry, apply soothing lotions or creams, and avoid scratching. Consult a dermatologist if the rash persists or worsens.",
     causes: "Skin rashes may result from allergic reactions, infections, autoimmune disorders, or contact with irritants.",
@@ -50,44 +50,44 @@ function checkSymptom() {
   const symptomInput = document.getElementById("symptom-input").value.toLowerCase();
   const chatContainer = document.getElementById("chat-container");
 
-  // Retrieve personal information entered by the user
+  
   const name = document.getElementById("name-input").value;
   const city = document.getElementById("city-input").value;
   const phoneNumber = document.getElementById("phone-input").value;
   const age = document.getElementById("age-input").value;
 
-  // Display user input along with personal information
+ 
   const userMessage = document.createElement("div");
   userMessage.innerHTML = `<strong>You:</strong> Symptom: ${symptomInput}<br>Name: ${name}<br>City: ${city}<br>Phone Number: ${phoneNumber}<br>Age: ${age}`;
   chatContainer.appendChild(userMessage);
 
-  // Check if there's information for the symptom
+  
   const symptomInfo = symptomMap[symptomInput];
   if (symptomInfo) {
-    // Display treatment and possible causes
+    
     const botMessage = document.createElement("div");
     botMessage.innerHTML = `<strong>Bot:</strong> Treatment: ${symptomInfo.treatment}<br><strong>Possible Causes:</strong> ${symptomInfo.causes}`;
     chatContainer.appendChild(botMessage);
   } else {
-    // If no information found, display default message
+    
     const defaultMessage = document.createElement("div");
-    defaultMessage.innerHTML = "<strong>Bot:</strong> I'm sorry, I don't have information about that symptom.";
+    defaultMessage.innerHTML = "<strong>Bot:</strong> I'm sorry, I don't have information about that symptom please try to find a registered medical professional to ask for more help.";
     chatContainer.appendChild(defaultMessage);
   }
 
-  // Clear symptom input field
+  
   document.getElementById("symptom-input").value = "";
 
-  // Scroll to the bottom of the chat container
+  
   chatContainer.scrollTop = chatContainer.scrollHeight;
 }
 
-// Function to clear the chat history and input fields
+
 function clearChat() {
   const chatContainer = document.getElementById("chat-container");
   chatContainer.innerHTML = "";
 
-  // Clear all input fields
+  
   document.getElementById("symptom-input").value = "";
   document.getElementById("name-input").value = "";
   document.getElementById("city-input").value = "";
@@ -95,7 +95,7 @@ function clearChat() {
   document.getElementById("age-input").value = "";
 }
 
-// Function to exit the chat and close the tab
+
 function exitChat() {
   if (confirm("Are you sure you want to exit the chat?")) {
     window.close(); // Close the current tab
